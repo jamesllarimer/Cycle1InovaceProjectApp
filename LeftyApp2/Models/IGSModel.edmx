@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IGS_TransactionsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DocumentTracking">
+          <Key>
+            <PropertyRef Name="DocumentTrackingID" />
+          </Key>
+          <Property Name="DocumentTrackingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UniqueID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BPID" Type="int" Nullable="false" />
+          <Property Name="TPName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TransactionSetID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Direction" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="OriginalFileName" Type="varchar" MaxLength="512" />
+          <Property Name="ProcessingStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ArchiveFileName" Type="varchar" MaxLength="512" />
+          <Property Name="ArchiveFilePath" Type="varchar" MaxLength="512" />
+          <Property Name="OverallStatus" Type="varchar" MaxLength="50" />
+          <Property Name="FileDate" Type="varchar" MaxLength="50" />
+          <Property Name="Checksum" Type="varchar" MaxLength="50" />
+          <Property Name="ISAControlNum" Type="varchar" MaxLength="50" />
+          <Property Name="GSControlNum" Type="varchar" MaxLength="50" />
+          <Property Name="STCount" Type="int" />
+          <Property Name="ISAFANum" Type="varchar" MaxLength="50" />
+          <Property Name="GSFANum" Type="varchar" MaxLength="50" />
+          <Property Name="FACount" Type="int" />
+          <Property Name="FALink" Type="varchar" MaxLength="50" />
+          <Property Name="Mailbox" Type="varchar" MaxLength="512" />
+          <Property Name="MailboxMessageID" Type="int" />
+        </EntityType>
+        <EntityType Name="Schedules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TradingPartner" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Direction" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TimeOfDay" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Schedule" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Exclusions" Type="varchar" MaxLength="256" />
+          <Property Name="Deadline" Type="time" Precision="7" />
+          <Property Name="Trackable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IGS_TransactionsModelStoreContainer">
+          <EntitySet Name="DocumentTracking" EntityType="Self.DocumentTracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedules" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IGS_TransactionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DocumentTracking">
+          <Key>
+            <PropertyRef Name="DocumentTrackingID" />
+          </Key>
+          <Property Name="DocumentTrackingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UniqueID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BPID" Type="Int32" Nullable="false" />
+          <Property Name="TPName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionSetID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direction" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OriginalFileName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessingStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ArchiveFileName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ArchiveFilePath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="OverallStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Checksum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISAControlNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GSControlNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STCount" Type="Int32" />
+          <Property Name="ISAFANum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GSFANum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FACount" Type="Int32" />
+          <Property Name="FALink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mailbox" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="MailboxMessageID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Schedules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TradingPartner" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direction" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeOfDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Schedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exclusions" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Deadline" Type="Time" Precision="7" />
+          <Property Name="Trackable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IGS_TransactionsEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DocumentTracking" EntityType="Self.DocumentTracking" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedules" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IGS_TransactionsModelStoreContainer" CdmEntityContainer="IGS_TransactionsEntities4">
+          <EntitySetMapping Name="DocumentTracking">
+            <EntityTypeMapping TypeName="IGS_TransactionsModel.DocumentTracking">
+              <MappingFragment StoreEntitySet="DocumentTracking">
+                <ScalarProperty Name="DocumentTrackingID" ColumnName="DocumentTrackingID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="BPID" ColumnName="BPID" />
+                <ScalarProperty Name="TPName" ColumnName="TPName" />
+                <ScalarProperty Name="TransactionSetID" ColumnName="TransactionSetID" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+                <ScalarProperty Name="ProcessingStatus" ColumnName="ProcessingStatus" />
+                <ScalarProperty Name="ArchiveFileName" ColumnName="ArchiveFileName" />
+                <ScalarProperty Name="ArchiveFilePath" ColumnName="ArchiveFilePath" />
+                <ScalarProperty Name="OverallStatus" ColumnName="OverallStatus" />
+                <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+                <ScalarProperty Name="Checksum" ColumnName="Checksum" />
+                <ScalarProperty Name="ISAControlNum" ColumnName="ISAControlNum" />
+                <ScalarProperty Name="GSControlNum" ColumnName="GSControlNum" />
+                <ScalarProperty Name="STCount" ColumnName="STCount" />
+                <ScalarProperty Name="ISAFANum" ColumnName="ISAFANum" />
+                <ScalarProperty Name="GSFANum" ColumnName="GSFANum" />
+                <ScalarProperty Name="FACount" ColumnName="FACount" />
+                <ScalarProperty Name="FALink" ColumnName="FALink" />
+                <ScalarProperty Name="Mailbox" ColumnName="Mailbox" />
+                <ScalarProperty Name="MailboxMessageID" ColumnName="MailboxMessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="IGS_TransactionsModel.Schedules">
+              <MappingFragment StoreEntitySet="Schedules">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScheduleName" ColumnName="ScheduleName" />
+                <ScalarProperty Name="TradingPartner" ColumnName="TradingPartner" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="TimeOfDay" ColumnName="TimeOfDay" />
+                <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+                <ScalarProperty Name="Exclusions" ColumnName="Exclusions" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Trackable" ColumnName="Trackable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
